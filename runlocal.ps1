@@ -11,7 +11,7 @@ cd ./src
 start powershell -argumentlist "-noexit","-command","http-server"
 cd ..
 
-echo 'Start deck-of-cards Code instance...'
+echo 'Starting Code instance...'
 code .
 
 echo 'Opening up local site in Chrome...'
