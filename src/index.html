@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head prefix="og: http://ogp.me/ns#">
 
     <meta charset="utf-8" />
@@ -18,15 +19,20 @@
     <meta property="og:image:height" content="" />
 
     <title>Title</title>
-
+    <!-- build:cssReferences -->
     <link href="./styles/app.css" rel="stylesheet" type="text/css" />
+    <!-- endbuild -->
 </head>
+
 <body>
-    
+
+    <!-- build:jsReferences -->
     <script src="./scripts/jspm_packages/system.js"></script>
     <script src="./scripts/config.js"></script>
     <script>
         System.import('./scripts/compiled/app');
     </script>
+    <!-- endbuild -->
 </body>
+
 </html>
