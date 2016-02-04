@@ -12,6 +12,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var htmlReplace = require('gulp-html-replace');
 var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
+var tslint = require("gulp-tslint");
 
 var tsProject = ts.createProject('tsconfig.json');
 console.log(tsProject.options.outDir);
@@ -22,6 +23,18 @@ gulp.task('scripts', function () {
 
     return tsResult.js.pipe(gulp.dest(tsProject.options.outDir));
 });
+
+gulp.task('tslint', function () {
+    return gulp.src(['./src/scripts/**/*.ts', '!./src/scripts/typings/**/*'])
+        .pipe(tslint())
+        .pipe(tslint.report('prose', {
+            summarizeFailureOutput: true
+        }));
+});
+
+gulp.task('tslint-watch', function() {
+    return gulp.watch(['./src/scripts/**/*.ts', '!./src/scripts/typings/**/*'], ['tslint']);
+})
 
 gulp.task('styles', function () {
     return gulp.src('./src/styles/app.scss')
