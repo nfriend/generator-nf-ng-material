@@ -1,0 +1,7 @@
+# packages
+node_modules
+src/scripts/jspm_packages
+
+# compiled code
+src/scripts/compiled
+src/styles/app.scss

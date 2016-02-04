@@ -1,0 +1,36 @@
+{
+  "name": "generator-nf-ng-material",
+  "version": "1.0.0",
+  "description": "A Yoeman template for an Angular material design app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfriend/generator-nf-ng-material.git"
+  },
+  "author": "Nathan Friend",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nfriend/generator-nf-ng-material/issues"
+  },
+  "homepage": "https://github.com/nfriend/generator-nf-ng-material#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-typescript": "^2.10.0",
+    "jspm": "^0.16.26"
+  },
+  "jspm": {
+    "directories": {
+      "packages": "src/scripts/jspm_packages"
+    },
+    "configFile": "src/scripts/config.js",
+    "dependencies": {
+      "angular-material": "github:angular/bower-material@^1.0.4"
+    },
+    "devDependencies": {}
+  }
+}

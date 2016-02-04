@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "noImplicitReturns": true,
+        "noImplicitAny": true,
+        "noFallthroughCasesInSwitch": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "outDir": "./src/scripts/compiled",
+        "rootDir": "./src/scripts"
+    },
+    "exclude": [
+        "node_modules",
+        "jspm_packages"
+    ]
+}
