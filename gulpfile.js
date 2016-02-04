@@ -14,8 +14,13 @@ var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var tslint = require("gulp-tslint");
 
-var tsProject = ts.createProject('tsconfig.json');
-console.log(tsProject.options.outDir);
+
+var tsconfigOverrides = {
+    noImplicitReturns: true,
+    noImplicitAny: true,
+    preserveConstEnums: true
+};
+var tsProject = ts.createProject('tsconfig.json', tsconfigOverrides);
 
 gulp.task('scripts', function () {
     var tsResult = tsProject.src()
@@ -32,7 +37,7 @@ gulp.task('tslint', function () {
         }));
 });
 
-gulp.task('tslint-watch', function() {
+gulp.task('tslint-watch', function () {
     return gulp.watch(['./src/scripts/**/*.ts', '!./src/scripts/typings/**/*'], ['tslint']);
 })
 
