@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var KarmaServer = require('karma').Server;
 
 var tsProject = ts.createProject('tsconfig.json');
 console.log(tsProject.options.outDir);
@@ -13,11 +14,17 @@ gulp.task('scripts', function () {
     return tsResult.js.pipe(gulp.dest(tsProject.options.outDir));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
     gulp.src('./src/styles/app.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(gulp.dest('./src/styles/'));
+});
+
+gulp.task('test', ['scripts'], function (done) {
+    new KarmaServer({
+        configFile: __dirname + '/karma.conf.js'
+    }, done).start();
 });
 
 gulp.task('watch', ['scripts', 'styles'], function () {
