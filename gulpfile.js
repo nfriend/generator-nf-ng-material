@@ -14,7 +14,6 @@ var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var tslint = require("gulp-tslint");
 
-
 var tsconfigOverrides = {
     noImplicitReturns: true,
     noImplicitAny: true,
@@ -48,15 +47,21 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('./src/styles/'));
 });
 
+gulp.task('templates', function () {
+    return gulp.src('./src/scripts/modules/**/*.tmpl.html')
+        .pipe(gulp.dest('./src/scripts/compiled/modules/'));
+})
+
 gulp.task('test', ['scripts'], function (done) {
     new KarmaServer({
         configFile: __dirname + '/karma.conf.js'
     }, done).start();
 });
 
-gulp.task('watch', ['scripts', 'styles'], function () {
+gulp.task('watch', ['scripts', 'styles', 'templates'], function () {
     gulp.watch('./src/scripts/**/*.ts', ['scripts']);
     gulp.watch('./src/styles/**/*.scss', ['styles']);
+    gulp.watch('./src/scripts/modules/**/*.tmpl.html', ['templates']);
 });
 
 gulp.task('clean-dist', function () {
@@ -110,7 +115,7 @@ gulp.task('minify-html', function () {
 gulp.task('dist', function (done) {
     runSequence(
         'clean-dist',
-        ['scripts', 'styles'],
+        ['scripts', 'styles', 'templates'],
         ['bundle-js', 'minify-css', 'replace-index'],
         'minify-html',
         done);

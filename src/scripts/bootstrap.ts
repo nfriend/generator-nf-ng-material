@@ -1,3 +1,4 @@
-import {ExampleFeatureService} from './example-feature/example-feature.service';
+import 'angular-material';
+import {myAppModule} from './app';
 
-new ExampleFeatureService().doSomething();
+angular.bootstrap(document, [myAppModule.name]);   

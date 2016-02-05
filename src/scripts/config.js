@@ -1,9 +1,9 @@
 System.config({
-  baseURL: "./src/compiled",
+  baseURL: "./scripts/compiled",
   defaultJSExtensions: true,
   transpiler: false,
   paths: {
-    "github:*": "src/scripts/jspm_packages/github/*"
+    "github:*": "./scripts/jspm_packages/github/*"
   },
 
   map: {
