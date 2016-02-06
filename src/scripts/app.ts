@@ -1,9 +1,9 @@
-import {exampleFeatureModule} from './modules/ExampleFeature/ExampleFeature.module';
+import {toolbarModule} from './modules/Toolbar/Toolbar.module';
 
 let myAppModule: ng.IModule = angular.module('MyApp',
     [
         'ngMaterial',
-        exampleFeatureModule.name
+        toolbarModule.name
     ]);
 
 export {myAppModule};

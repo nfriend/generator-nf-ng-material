@@ -1,14 +1,14 @@
 echo 'Starting local development environment...'
 
 echo 'Starting gulp build...'
-start powershell -argumentlist "-noexit","-command","gulp"
+start powershell -argumentlist "-noexit","-command","$host.ui.RawUI.WindowTitle = 'Gulp Build'; gulp"
 
 echo 'Starting Karma test runner'
-start powershell -argumentlist "-noexit","-command","gulp test"
+start powershell -argumentlist "-noexit","-command","$host.ui.RawUI.WindowTitle = 'Karma Test'; gulp test"
 
 echo 'Starting local HTTP server...'
 cd ./src
-start powershell -argumentlist "-noexit","-command","http-server"
+start powershell -argumentlist "-noexit","-command","$host.ui.RawUI.WindowTitle = 'HTTP server'; http-server"
 cd ..
 
 echo 'Starting Code instance...'

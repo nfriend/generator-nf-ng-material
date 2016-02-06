@@ -3,16 +3,20 @@ System.config({
   defaultJSExtensions: true,
   transpiler: false,
   paths: {
-    "github:*": "./scripts/jspm_packages/github/*"
+    "github:*": "src/scripts/jspm_packages/github/*"
   },
 
   map: {
     "angular-material": "github:angular/bower-material@1.0.4",
+    "angular-mocks": "github:angular/bower-angular-mocks@1.5.0",
     "github:angular/bower-angular-animate@1.4.9": {
       "angular": "github:angular/bower-angular@1.4.9"
     },
     "github:angular/bower-angular-aria@1.4.9": {
       "angular": "github:angular/bower-angular@1.4.9"
+    },
+    "github:angular/bower-angular-mocks@1.5.0": {
+      "angular": "github:angular/bower-angular@1.5.0"
     },
     "github:angular/bower-material@1.0.4": {
       "angular": "github:angular/bower-angular@1.4.9",
