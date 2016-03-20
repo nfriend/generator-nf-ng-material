@@ -1,20 +1,12 @@
-import 'angular-material';
 import 'angular-mocks';
 import {ToolbarService} from './Toolbar.service';
-import {toolbarModule} from './Toolbar.module';
 
 describe('toolbar.service', () => {
-    
-    beforeEach(() => {
-        angular.mock.module(toolbarModule.name);
-    })
-    
-    it('make sure the toolbar service does something', () => {
-        inject('$log', ($logger: ng.ILogService) => {
-            let efs = new ToolbarService($logger);
-            spyOn($logger, 'info');
+    it('make sure the toolbar service does something', inject(($injector: any) => {
+        var $log: ng.ILogService = $injector.get('$log');
+            let efs = new ToolbarService($log);
+            spyOn($log, 'info').and.callThrough();
             efs.doSomething();
-            expect($logger.info).toHaveBeenCalledWith('the toolbar service did something.');
-        });
-    });
+            expect($log.info).toHaveBeenCalledWith('the toolbar service did something.');
+    }));
 }); 

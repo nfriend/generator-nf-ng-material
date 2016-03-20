@@ -7,6 +7,6 @@ export class ToolbarService {
     }
     
     doSomething = () => {
-        this.$logger.log('the toolbar service did something.');
+        this.$logger.info('the toolbar service did something.');
     };
 }
